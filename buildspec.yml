@@ -1,9 +1,13 @@
 version: 0.2
 
+env:
+  variables:
+    NODE_ENV: development
+
 phases:
   install:
     commands:
-      - npm install
+      - npm install --include=dev
 
   build:
     commands:
