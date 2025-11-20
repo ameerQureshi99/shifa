@@ -1,19 +1,17 @@
 version: 0.2
-
-env:
-  variables:
-    NODE_ENV: development
-
 phases:
   install:
+    runtime-versions:
+      nodejs: 18 # Or a different compatible Node.js version
     commands:
-      - npm install --include=dev
-
+      - echo Installing dependencies...
+      - npm install
   build:
     commands:
-      - npm run build
-
+      - echo Build started on `date`
+      - npm run build # This runs the vite build command
+      - echo Build completed on `date`
 artifacts:
   files:
     - '**/*'
-  base-directory: dist
+  baseDirectory: dist # The output directory for Vite
